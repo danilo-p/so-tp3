@@ -23,7 +23,7 @@ unsigned get_addr_shift(unsigned page_size_kb)
     return addr_shift;
 }
 
-unsigned get_addr_page(unsigned addr, unsigned addr_shift)
+unsigned get_target_page(unsigned addr, unsigned addr_shift)
 {
     return addr >> addr_shift;
 }
@@ -130,19 +130,19 @@ int main(int argc, char *argv[])
     unsigned addr;
     char rw;
     unsigned addr_shift = get_addr_shift(page_size_kb);
-    unsigned addr_page;
+    unsigned target_page;
     unsigned victim_page;
     while (!feof(addr_file))
     {
         fscanf(addr_file, "%x %c", &addr, &rw);
-        addr_page = get_addr_page(addr, addr_shift);
+        target_page = get_target_page(addr, addr_shift);
 
         if (rw == 'W')
         {
-            page_table[addr_page].dirty = 1;
+            page_table[target_page].dirty = 1;
         }
 
-        if (page_table[addr_page].valid)
+        if (page_table[target_page].valid)
         {
             continue;
         }
@@ -151,7 +151,7 @@ int main(int argc, char *argv[])
 
         if (frames_filled < frames_total)
         {
-            page_table[addr_page].valid = 1;
+            page_table[target_page].valid = 1;
             frames_filled++;
             continue;
         }
@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
         page_table[victim_page].valid = 0;
         page_table[victim_page].dirty = 0;
 
-        page_table[addr_page].valid = 1;
+        page_table[target_page].valid = 1;
     }
 
     printf("Paginas lidas: %d\n", page_faults);
