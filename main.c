@@ -11,6 +11,8 @@ typedef struct
     int dirty;
     time_t timestamp;
     time_t last_used_ms;
+    int reference_bit;
+    int received_chance;
 } page_t;
 
 unsigned get_addr_shift(unsigned page_size_kb)
@@ -60,7 +62,33 @@ int strategy_lru(page_t *page_table)
 
 int strategy_2a(page_t *page_table)
 {
-    return strategy_dummy(page_table);
+    int victm_page = 0, i = 0, selected_page = 0;
+    time_t time_now = time(NULL);
+    double diff = 0.0;
+    
+    for(i=0; i<PAGE_TABLE_SIZE; i++){
+        page_table[i].received_chance = 0;
+    }
+
+    while(1){ //gives second chance
+        for(i=0; i<PAGE_TABLE_SIZE; i++){ //finds page
+            if(page_table[i].valid && !page_table[i].received_chance && difftime(time_now, page_table[i].timestamp) > diff){
+                selected_page = i;
+                diff = difftime(time_now, page_table[i].timestamp);
+            }
+        }
+
+        if(page_table[selected_page].reference_bit == 0){
+            victm_page = selected_page;
+            break;
+        }
+        else{
+            page_table[selected_page].reference_bit = 0;
+            page_table[selected_page].received_chance = 1;
+        }
+
+    }
+    return victm_page;   
 }
 
 int strategy_fifo(page_t *page_table)
@@ -139,6 +167,7 @@ int main(int argc, char *argv[])
     {
         page_table[i].valid = 0;
         page_table[i].dirty = 0;
+        page_table[i].reference_bit = 1;
     }
 
     FILE *addr_file = fopen(addr_file_name, "r");
@@ -177,6 +206,7 @@ int main(int argc, char *argv[])
         {
             page_table[target_page].valid = 1;
             page_table[target_page].timestamp = time(NULL);
+            page_table[target_page].reference_bit = 1;
             frames_filled++;
             continue;
         }
@@ -190,6 +220,8 @@ int main(int argc, char *argv[])
         page_table[victim_page].dirty = 0;
 
         page_table[target_page].valid = 1;
+        page_table[target_page].timestamp = time(NULL);
+        page_table[target_page].reference_bit = 1;
     }
 
     printf("Paginas lidas: %d\n", page_faults);
