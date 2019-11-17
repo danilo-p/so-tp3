@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #define PAGE_TABLE_SIZE 2097152
 
@@ -27,7 +28,7 @@ unsigned get_addr_page(unsigned addr, unsigned addr_shift)
     return addr >> addr_shift;
 }
 
-int dummy_strategy(page_t *page_table)
+int strategy_dummy(page_t *page_table)
 {
     for (int i = 0; i < PAGE_TABLE_SIZE; i++)
     {
@@ -41,22 +42,28 @@ int dummy_strategy(page_t *page_table)
 
 int strategy_lru(page_t *page_table)
 {
-    return dummy_strategy(page_table);
+    return strategy_dummy(page_table);
 }
 
 int strategy_2a(page_t *page_table)
 {
-    return dummy_strategy(page_table);
+    return strategy_dummy(page_table);
 }
 
 int strategy_fifo(page_t *page_table)
 {
-    return dummy_strategy(page_table);
+    return strategy_dummy(page_table);
 }
 
 int strategy_random(page_t *page_table)
 {
-    return dummy_strategy(page_table);
+    int candidate_page;
+    do
+    {
+        candidate_page = (random() % PAGE_TABLE_SIZE);
+    } while (!page_table[candidate_page].valid);
+
+    return candidate_page;
 }
 
 int get_swapped_page(page_t *page_table, char *swap_strategy)
@@ -81,11 +88,18 @@ int get_swapped_page(page_t *page_table, char *swap_strategy)
         return strategy_random(page_table);
     }
 
+    if (strcmp(swap_strategy, "dummy") == 0)
+    {
+        return strategy_dummy(page_table);
+    }
+
     return -1;
 }
 
 int main(int argc, char *argv[])
 {
+    srandom(time(NULL));
+
     printf("Executando o simulador...\n");
 
     char *swap_strategy = argv[1];
