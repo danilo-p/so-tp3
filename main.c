@@ -9,6 +9,7 @@ typedef struct
 {
     int valid;
     int dirty;
+    time_t timestamp;
 } page_t;
 
 unsigned get_addr_shift(unsigned page_size_kb)
@@ -52,7 +53,15 @@ int strategy_2a(page_t *page_table)
 
 int strategy_fifo(page_t *page_table)
 {
-    return strategy_dummy(page_table);
+    int victm_page = 0, i = 0;
+    int smallest_timestamp = 2147483647; //maximum int C can handle
+    for(i=0; i<PAGE_TABLE_SIZE; i++){
+        if(page_table[i].timestamp < smallest_timestamp && page_table[i].valid){
+            victm_page = i;
+            smallest_timestamp = page_table[i].timestamp;
+        }
+    }
+    return victm_page;
 }
 
 int strategy_random(page_t *page_table)
@@ -152,6 +161,7 @@ int main(int argc, char *argv[])
         if (frames_filled < frames_total)
         {
             page_table[target_page].valid = 1;
+            page_table[target_page].timestamp = time(NULL);
             frames_filled++;
             continue;
         }
