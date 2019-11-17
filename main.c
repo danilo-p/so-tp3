@@ -66,11 +66,12 @@ int strategy_2a(page_t *page_table)
 int strategy_fifo(page_t *page_table)
 {
     int victm_page = 0, i = 0;
-    int smallest_timestamp = 2147483647; //maximum int C can handle
+    time_t time_now = time(NULL);
+    double diff = 0.0;
     for(i=0; i<PAGE_TABLE_SIZE; i++){
-        if(page_table[i].timestamp < smallest_timestamp && page_table[i].valid){
+        if(difftime(time_now, page_table[i].timestamp) > diff && page_table[i].valid){
             victm_page = i;
-            smallest_timestamp = page_table[i].timestamp;
+            diff = difftime(time_now, page_table[i].timestamp);
         }
     }
     return victm_page;
