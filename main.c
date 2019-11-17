@@ -57,16 +57,16 @@ int strategy_fifo(page_t *page_table)
 
 int strategy_random(page_t *page_table)
 {
-    int candidate_page;
+    int victim_page;
     do
     {
-        candidate_page = (random() % PAGE_TABLE_SIZE);
-    } while (!page_table[candidate_page].valid);
+        victim_page = (random() % PAGE_TABLE_SIZE);
+    } while (!page_table[victim_page].valid);
 
-    return candidate_page;
+    return victim_page;
 }
 
-int get_swapped_page(page_t *page_table, char *swap_strategy)
+int get_victim_page(page_t *page_table, char *swap_strategy)
 {
     if (strcmp(swap_strategy, "lru") == 0)
     {
@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
     char rw;
     unsigned addr_shift = get_addr_shift(page_size_kb);
     unsigned addr_page;
-    unsigned swapped_page;
+    unsigned victim_page;
     while (!feof(addr_file))
     {
         fscanf(addr_file, "%x %c", &addr, &rw);
@@ -156,13 +156,13 @@ int main(int argc, char *argv[])
             continue;
         }
 
-        swapped_page = get_swapped_page(page_table, swap_strategy);
-        if (page_table[swapped_page].dirty)
+        victim_page = get_victim_page(page_table, swap_strategy);
+        if (page_table[victim_page].dirty)
         {
             dirty_writes++;
         }
-        page_table[swapped_page].valid = 0;
-        page_table[swapped_page].dirty = 0;
+        page_table[victim_page].valid = 0;
+        page_table[victim_page].dirty = 0;
 
         page_table[addr_page].valid = 1;
     }
