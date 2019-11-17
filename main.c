@@ -10,6 +10,7 @@ typedef struct
     int valid;
     int dirty;
     time_t timestamp;
+    time_t last_used_ms;
 } page_t;
 
 unsigned get_addr_shift(unsigned page_size_kb)
@@ -43,7 +44,18 @@ int strategy_dummy(page_t *page_table)
 
 int strategy_lru(page_t *page_table)
 {
-    return strategy_dummy(page_table);
+    int min_i = -1;
+    for (int i = 0; i < PAGE_TABLE_SIZE; i++)
+    {
+        if (page_table[i].valid)
+        {
+            if (min_i == -1 || difftime(page_table[min_i].last_used_ms, page_table[i].last_used_ms) > 0)
+            {
+                min_i = i;
+            }
+        }
+    }
+    return min_i;
 }
 
 int strategy_2a(page_t *page_table)
@@ -150,6 +162,8 @@ int main(int argc, char *argv[])
         {
             page_table[target_page].dirty = 1;
         }
+
+        page_table[target_page].last_used_ms = time(NULL);
 
         if (page_table[target_page].valid)
         {
