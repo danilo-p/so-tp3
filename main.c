@@ -69,7 +69,7 @@ int strategy_fifo(page_t *page_table)
     time_t time_now = time(NULL);
     double diff = 0.0;
     for(i=0; i<PAGE_TABLE_SIZE; i++){
-        if(difftime(time_now, page_table[i].timestamp) > diff && page_table[i].valid){
+        if(page_table[i].valid && difftime(time_now, page_table[i].timestamp) > diff){
             victm_page = i;
             diff = difftime(time_now, page_table[i].timestamp);
         }
