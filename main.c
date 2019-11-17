@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define PAGE_TABLE_SIZE 2097152
 
@@ -26,7 +27,7 @@ unsigned get_addr_page(unsigned addr, unsigned addr_shift)
     return addr >> addr_shift;
 }
 
-int get_swapped_page(page_t *page_table, char *swap_strategy)
+int dummy_strategy(page_t *page_table)
 {
     for (int i = 0; i < PAGE_TABLE_SIZE; i++)
     {
@@ -35,6 +36,51 @@ int get_swapped_page(page_t *page_table, char *swap_strategy)
             return i;
         }
     }
+    return -1;
+}
+
+int strategy_lru(page_t *page_table)
+{
+    return dummy_strategy(page_table);
+}
+
+int strategy_2a(page_t *page_table)
+{
+    return dummy_strategy(page_table);
+}
+
+int strategy_fifo(page_t *page_table)
+{
+    return dummy_strategy(page_table);
+}
+
+int strategy_random(page_t *page_table)
+{
+    return dummy_strategy(page_table);
+}
+
+int get_swapped_page(page_t *page_table, char *swap_strategy)
+{
+    if (strcmp(swap_strategy, "lru") == 0)
+    {
+        return strategy_lru(page_table);
+    }
+
+    if (strcmp(swap_strategy, "2a") == 0)
+    {
+        return strategy_2a(page_table);
+    }
+
+    if (strcmp(swap_strategy, "fifo") == 0)
+    {
+        return strategy_fifo(page_table);
+    }
+
+    if (strcmp(swap_strategy, "random") == 0)
+    {
+        return strategy_random(page_table);
+    }
+
     return -1;
 }
 
