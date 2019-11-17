@@ -65,30 +65,35 @@ int strategy_2a(page_t *page_table)
     int victm_page = 0, i = 0, selected_page = 0;
     time_t time_now = time(NULL);
     double diff = 0.0;
-    
-    for(i=0; i<PAGE_TABLE_SIZE; i++){
+
+    for (i = 0; i < PAGE_TABLE_SIZE; i++)
+    {
         page_table[i].received_chance = 0;
     }
 
-    while(1){ //gives second chance
-        for(i=0; i<PAGE_TABLE_SIZE; i++){ //finds page
-            if(page_table[i].valid && !page_table[i].received_chance && difftime(time_now, page_table[i].timestamp) > diff){
+    while (1)
+    { //gives second chance
+        for (i = 0; i < PAGE_TABLE_SIZE; i++)
+        { //finds page
+            if (page_table[i].valid && !page_table[i].received_chance && difftime(time_now, page_table[i].timestamp) > diff)
+            {
                 selected_page = i;
                 diff = difftime(time_now, page_table[i].timestamp);
             }
         }
 
-        if(page_table[selected_page].reference_bit == 0){
+        if (page_table[selected_page].reference_bit == 0)
+        {
             victm_page = selected_page;
             break;
         }
-        else{
+        else
+        {
             page_table[selected_page].reference_bit = 0;
             page_table[selected_page].received_chance = 1;
         }
-
     }
-    return victm_page;   
+    return victm_page;
 }
 
 int strategy_fifo(page_t *page_table)
@@ -96,8 +101,10 @@ int strategy_fifo(page_t *page_table)
     int victm_page = 0, i = 0;
     time_t time_now = time(NULL);
     double diff = 0.0;
-    for(i=0; i<PAGE_TABLE_SIZE; i++){
-        if(page_table[i].valid && difftime(time_now, page_table[i].timestamp) > diff){
+    for (i = 0; i < PAGE_TABLE_SIZE; i++)
+    {
+        if (page_table[i].valid && difftime(time_now, page_table[i].timestamp) > diff)
+        {
             victm_page = i;
             diff = difftime(time_now, page_table[i].timestamp);
         }
