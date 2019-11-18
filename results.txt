@@ -1,0 +1,414 @@
+# 2 256
+
+## lru
+
+Executando o simulador...
+Arquivo de entrada: compilador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: lru
+Paginas lidas: 69561
+Paginas escritas: 9354
+
+Executando o simulador...
+Arquivo de entrada: compressor.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: lru
+Paginas lidas: 1685
+Paginas escritas: 429
+
+Executando o simulador...
+Arquivo de entrada: matriz.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: lru
+Paginas lidas: 31070
+Paginas escritas: 4572
+
+Executando o simulador...
+Arquivo de entrada: simulador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: lru
+Paginas lidas: 42124
+Paginas escritas: 8924
+
+## 2a
+
+Executando o simulador...
+Arquivo de entrada: compilador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: 2a
+Paginas lidas: 58720
+Paginas escritas: 9873
+
+Executando o simulador...
+Arquivo de entrada: compressor.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: 2a
+Paginas lidas: 928
+Paginas escritas: 289
+
+Executando o simulador...
+Arquivo de entrada: matriz.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: 2a
+Paginas lidas: 16549
+Paginas escritas: 4489
+
+Executando o simulador...
+Arquivo de entrada: simulador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: 2a
+Paginas lidas: 29581
+Paginas escritas: 8727
+
+## random
+
+Executando o simulador...
+Arquivo de entrada: compilador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: random
+Paginas lidas: 63819
+Paginas escritas: 10325
+
+Executando o simulador...
+Arquivo de entrada: compressor.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: random
+Paginas lidas: 1371
+Paginas escritas: 446
+
+Executando o simulador...
+Arquivo de entrada: matriz.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: random
+Paginas lidas: 22581
+Paginas escritas: 5803
+
+Executando o simulador...
+Arquivo de entrada: simulador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: random
+Paginas lidas: 36921
+Paginas escritas: 10232
+
+## fifo
+
+Executando o simulador...
+Arquivo de entrada: compilador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: fifo
+Paginas lidas: 36316
+Paginas escritas: 6638
+
+Executando o simulador...
+Arquivo de entrada: compressor.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: fifo
+Paginas lidas: 958
+Paginas escritas: 282
+
+Executando o simulador...
+Arquivo de entrada: matriz.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: fifo
+Paginas lidas: 13473
+Paginas escritas: 3747
+
+Executando o simulador...
+Arquivo de entrada: simulador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: fifo
+Paginas lidas: 19297
+Paginas escritas: 6405
+
+# 32 256
+
+## lru
+
+Executando o simulador...
+Arquivo de entrada: compilador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: lru
+Paginas lidas: 354899
+Paginas escritas: 58609
+
+Executando o simulador...
+Arquivo de entrada: compressor.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: lru
+Paginas lidas: 21478
+Paginas escritas: 3771
+
+Executando o simulador...
+Arquivo de entrada: matriz.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: lru
+Paginas lidas: 509733
+Paginas escritas: 37588
+
+Executando o simulador...
+Arquivo de entrada: simulador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: lru
+Paginas lidas: 252160
+Paginas escritas: 83305
+
+## 2a
+
+Executando o simulador...
+Arquivo de entrada: compilador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: 2a
+Paginas lidas: 42540
+Paginas escritas: 8150
+
+Executando o simulador...
+Arquivo de entrada: compressor.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: 2a
+Paginas lidas: 654
+Paginas escritas: 261
+
+Executando o simulador...
+Arquivo de entrada: matriz.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: 2a
+Paginas lidas: 23281
+Paginas escritas: 5732
+
+Executando o simulador...
+Arquivo de entrada: simulador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: 2a
+Paginas lidas: 36560
+Paginas escritas: 9997
+
+## random
+
+Executando o simulador...
+Arquivo de entrada: compilador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: random
+Paginas lidas: 181329
+Paginas escritas: 33301
+
+Executando o simulador...
+Arquivo de entrada: compressor.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: random
+Paginas lidas: 8835
+Paginas escritas: 2104
+
+Executando o simulador...
+Arquivo de entrada: matriz.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: random
+Paginas lidas: 303391
+Paginas escritas: 53064
+
+Executando o simulador...
+Arquivo de entrada: simulador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: random
+Paginas lidas: 174665
+Paginas escritas: 45247
+
+## fifo
+
+Executando o simulador...
+Arquivo de entrada: compilador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: fifo
+Paginas lidas: 20131
+Paginas escritas: 4486
+
+Executando o simulador...
+Arquivo de entrada: compressor.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: fifo
+Paginas lidas: 278
+Paginas escritas: 31
+
+Executando o simulador...
+Arquivo de entrada: matriz.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: fifo
+Paginas lidas: 5807
+Paginas escritas: 2056
+
+Executando o simulador...
+Arquivo de entrada: simulador.log
+Tamanho da memoria: 256 KB
+Tamanho das páginas: 32 KB
+Tecnica de reposicao: fifo
+Paginas lidas: 9424
+Paginas escritas: 3964
+
+# 2 64
+
+## lru
+
+Executando o simulador...
+Arquivo de entrada: compilador.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: lru
+Paginas lidas: 218342
+Paginas escritas: 35337
+
+Executando o simulador...
+Arquivo de entrada: compressor.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: lru
+Paginas lidas: 6541
+Paginas escritas: 1280
+
+Executando o simulador...
+Arquivo de entrada: matriz.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: lru
+Paginas lidas: 170281
+Paginas escritas: 17901
+
+Executando o simulador...
+Arquivo de entrada: simulador.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: lru
+Paginas lidas: 151539
+Paginas escritas: 39488
+
+## 2a
+
+Executando o simulador...
+Arquivo de entrada: compilador.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: 2a
+Paginas lidas: 84666
+Paginas escritas: 13775
+
+Executando o simulador...
+Arquivo de entrada: compressor.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: 2a
+Paginas lidas: 1628
+Paginas escritas: 557
+
+Executando o simulador...
+Arquivo de entrada: matriz.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: 2a
+Paginas lidas: 45834
+Paginas escritas: 9686
+
+Executando o simulador...
+Arquivo de entrada: simulador.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: 2a
+Paginas lidas: 48688
+Paginas escritas: 12133
+
+## random
+
+Executando o simulador...
+Arquivo de entrada: compilador.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: random
+Paginas lidas: 125555
+Paginas escritas: 19644
+
+Executando o simulador...
+Arquivo de entrada: compressor.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: random
+Paginas lidas: 3248
+Paginas escritas: 1032
+
+Executando o simulador...
+Arquivo de entrada: matriz.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: random
+Paginas lidas: 95262
+Paginas escritas: 20022
+
+Executando o simulador...
+Arquivo de entrada: simulador.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: random
+Paginas lidas: 103782
+Paginas escritas: 23467
+
+## fifo
+
+Executando o simulador...
+Arquivo de entrada: compilador.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: fifo
+Paginas lidas: 46059
+Paginas escritas: 8087
+
+Executando o simulador...
+Arquivo de entrada: compressor.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: fifo
+Paginas lidas: 978
+Paginas escritas: 303
+
+Executando o simulador...
+Arquivo de entrada: matriz.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: fifo
+Paginas lidas: 15112
+Paginas escritas: 4073
+
+Executando o simulador...
+Arquivo de entrada: simulador.log
+Tamanho da memoria: 64 KB
+Tamanho das páginas: 2 KB
+Tecnica de reposicao: fifo
+Paginas lidas: 25946
+Paginas escritas: 7891
+
